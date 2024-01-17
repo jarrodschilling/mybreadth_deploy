@@ -1,0 +1,39 @@
+.js-center {
+    text-align: center;
+}
+
+.faq-ul {
+    text-align: left;
+}
+
+.button-js {
+    background-color: #0C7489;
+    border: 1px solid #210203;
+    border-radius: 20px;
+    color: #EDF2F4;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    width: 120px;
+    padding: 5px;
+}
+
+.button-update-js {
+    background-color: #0c4f89;
+    border: 1px solid #210203;
+    border-radius: 20px;
+    color: #EDF2F4;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* margin-left: 10px; */
+    padding: 2px;
+    size: 20px;
+    width: 130px;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+/* main {
+    background-color: rgba(111, 63, 0, 0.501);
+} */

@@ -1,0 +1,275 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CORE Sector Detail
+{% endblock %}
+
+{% block main %}
+<h1 style="text-align: center;">CORE Sector Detail</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <a class="btn btn-primary button-js" href="/core/sectors/detail/today">Current</a>
+    <a class="btn btn-primary button-js" href="/core/sectors/detail/yesterday">Previous Close</a>
+</div>
+<div class="container">
+    <!-- 20 Day EMA////////////////////////////////////////////////////////////////// -->
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[0].name }} - Above 20EMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[0]['ema20'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if not portfolios[1] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[1].name }} - Above 20EMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[1]['ema20'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        {% if not portfolios[2] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[2].name }} - Above 20EMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[2]['ema20'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+    <!-- 50 Day SMA////////////////////////////////////////////////////////////////// -->
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[0].name }} - Above 50SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[0]['sma50'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if not portfolios[1] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[1].name }} - Above 50SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[1]['sma50'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        {% if not portfolios[2] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[2].name }} - Above 50SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[2]['sma50'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+    <!-- 200 Day SMA////////////////////////////////////////////////////////////////// -->
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[0].name }} - Above 200SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[0]['sma200'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if not portfolios[1] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[1].name }} - Above 200SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[1]['sma200'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        {% if not portfolios[2] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[2].name }} - Above 200SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[2]['sma200'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+    <!-- BELOW 200 SMA////////////////////////////////////////////////////////////////// -->
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[0].name }} - Below 200SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[0]['under'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if not portfolios[1] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[1].name }} - Below 200SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[1]['under'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        {% if not portfolios[2] %}
+        <h2></h2>
+        {% else %}
+        <div class="col-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ portfolios[2].name }} - Below 200SMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in port_list[2]['under'] %}
+                    <tr>
+                        <td>
+                            ({{ stock.ticker }}) {{stock.name}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

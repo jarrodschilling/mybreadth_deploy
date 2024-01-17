@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Current Portfolios
+{% endblock %}
+
+{% block main %}
+    <h1 style="text-align: center;">Current Portfolios</h1>
+
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="js-center"><strong>{{message}}</strong></p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="row">
+            {% if portfolios|length > 0 %}
+            <div class="col-md-4">
+                <div class="text-center">
+                    <a href="/add-stock/{{portfolios[0].id}}" class="btn btn-primary mb-3 button-js" style="width: 120px; margin: 5px;">Add Stocks</a>
+                    <a href="/delete-stock/{{portfolios[0].id}}" class="btn btn-primary mb-3 button-js" style="width: 140px; margin: 5px;">Delete Stocks</a>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="d-flex justify-content-between">{{ portfolios[0].name }}<a href="/portfolios/delete/{{portfolios[0].id}}" class="btn btn-primary button-update-js">Remove Portfolio</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(portfolios[0].stocks|length) %}
+                        <tr>
+                            {% if not portfolios[0].stocks[i]['ticker'] %}
+                                <td>Please Add Stocks</td>
+                            {% else %}
+                            <td>
+                                ({{ portfolios[0].stocks[i]['ticker'] }}) {{ portfolios[0].stocks[i]['name'] }}
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            {% if portfolios|length > 1 %}
+            <div class="col-md-4">
+                <div class="text-center">
+                    <a href="/add-stock/{{portfolios[1].id}}" class="btn btn-primary mb-3 button-js" style="width: 120px; margin: 5px;">Add Stocks</a>
+                    <a href="/delete-stock/{{portfolios[1].id}}" class="btn btn-primary mb-3 button-js" style="width: 140px; margin: 5px;">Delete Stocks</a>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="d-flex justify-content-between">{{ portfolios[1].name }}<a href="/portfolios/delete/{{portfolios[1].id}}" class="btn btn-primary button-update-js">Remove Portfolio</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(portfolios[1].stocks|length) %}
+                        <tr>
+                            {% if not portfolios[1].stocks[i]['ticker'] %}
+                                <td>Please Add Stocks</td>
+                            {% else %}
+                            <td>
+                                ({{ portfolios[1].stocks[i]['ticker'] }}) {{ portfolios[1].stocks[i]['name'] }}
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            {% if portfolios|length > 2 %}
+            <div class="col-md-4">
+                <div class="text-center">
+                    <a href="/add-stock/{{portfolios[2].id}}" class="btn btn-primary mb-3 button-js" style="width: 120px; margin: 5px;">Add Stocks</a>
+                    <a href="/delete-stock/{{portfolios[2].id}}" class="btn btn-primary mb-3 button-js" style="width: 140px; margin: 5px;">Delete Stocks</a>
+                    
+                    
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="d-flex justify-content-between">{{ portfolios[2].name }}<a href="/portfolios/delete/{{portfolios[2].id}}" class="btn btn-primary button-update-js">Remove Portfolio</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(portfolios[2].stocks|length) %}
+                        <tr>
+                            {% if not portfolios[2].stocks[i]['ticker'] %}
+                                <td>Please Add Stocks</td>
+                            {% else %}
+                                <td>
+                                    ({{ portfolios[2].stocks[i]['ticker'] }}) {{ portfolios[2].stocks[i]['name'] }}
+                                </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
